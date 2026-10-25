@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qubrix - Next-Gen Interactive Quiz Engine</title>
+    <!-- FontAwesome Icons for UI -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Canvas Confetti for High Score Celebration -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <!-- Modern Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-palette="default">
+
+    <!-- Qubrix Branding Header -->
+    <header>
+        <div class="header-container">
+            <div class="brand-logo" onclick="resetQuiz()">
+                <div class="brand-cube">
+                    <i class="fa-solid fa-cubes"></i>
+                </div>
+                <div>
+                    <h1 class="brand-title">Qubrix</h1>
+                    <p class="brand-tagline">Interactive Assessment Engine</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <button id="flashcardsBtn" class="stats-badge-btn" title="Saved Flashcards">
+                    <i class="fa-solid fa-bookmark" style="color: var(--accent-cyan);"></i>
+                    <span>Flashcards</span>
+                </button>
+                <button id="historyModalBtn" class="stats-badge-btn" title="View High Scores & Heatmap">
+                    <i class="fa-solid fa-trophy" style="color: var(--accent-amber);"></i>
+                    <span>Stats</span>
+                </button>
+                <button id="themeToggle" class="icon-btn" title="Toggle Theme">
+                    <i id="themeIcon" class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content App -->
+    <main>
+        <!-- ================= STEP 1: CONFIG & START SCREEN ================= -->
+        <section id="startScreen" class="glass-panel">
+            <div class="tab-group">
+                <button id="modeStandardBtn" class="tab-btn active">
+                    <i class="fa-solid fa-shapes"></i> Standard Topics
+                </button>
+                <button id="modeAiBtn" class="tab-btn">
+                    <i class="fa-solid fa-wand-magic-sparkles" style="color: var(--accent-cyan);"></i> Custom AI Topic
+                </button>
+                <button id="modeMultiplayerBtn" class="tab-btn">
+                    <i class="fa-solid fa-users-rectangle" style="color: var(--accent-emerald);"></i> 1v1 Challenge
+                </button>
+            </div>
+
+            <!-- Standard Topic Grid -->
+            <div id="standardModeContainer">
+                <span class="section-label">Select Topic Category</span>
+                <div class="topic-grid">
+                    <div data-topic="quantum" class="topic-card selected">
+                        <i class="fa-solid fa-atom" style="color: var(--accent-cyan);"></i>
+                        <h3>Quantum Computing</h3>
+                        <p>Qubits, Superposition & Entanglement</p>
+                        <span class="q-count-pill">10 Questions</span>
+                    </div>
+                    <div data-topic="math" class="topic-card">
+                        <i class="fa-solid fa-square-root-variable" style="color: var(--accent-amber);"></i>
+                        <h3>Mathematics</h3>
+                        <p>Calculus, Algebra & Probability</p>
+                        <span class="q-count-pill">10 Questions</span>
+                    </div>
+                    <div data-topic="webdev" class="topic-card">
+                        <i class="fa-solid fa-code" style="color: var(--primary);"></i>
+                        <h3>Web Development</h3>
+                        <p>JS Core, HTML5 & Modern Web APIs</p>
+                        <span class="q-count-pill">10 Questions</span>
+                    </div>
+                    <div data-topic="cs" class="topic-card">
+                        <i class="fa-solid fa-network-wired" style="color: var(--accent-purple);"></i>
+                        <h3>Computer Science</h3>
+                        <p>Algorithms, OS & Data Structures</p>
+                        <span class="q-count-pill">10 Questions</span>
+                    </div>
+                    <div data-topic="gk" class="topic-card">
+                        <i class="fa-solid fa-earth-americas" style="color: var(--accent-emerald);"></i>
+                        <h3>General Science</h3>
+                        <p>Physics, Astronomy & Discovery</p>
+                        <span class="q-count-pill">10 Questions</span>
+                    </div>
+                    <div data-topic="tech" class="topic-card">
+                        <i class="fa-solid fa-robot" style="color: var(--accent-rose);"></i>
+                        <h3>AI & Machine Learning</h3>
+                        <p>Deep Learning & Neural Networks</p>
+                        <span class="q-count-pill">10 Questions</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Custom AI Input -->
+            <div id="aiModeContainer" class="hidden">
+                <div class="ai-input-box">
+                    <label class="section-label" style="color: var(--accent-purple);">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> Type Any Topic to Generate Questions
+                    </label>
+                    <input id="aiTopicInput" type="text" placeholder="e.g. Astrophysics, React State Machines, Cyber Security" class="custom-input">
+                </div>
+            </div>
+
+            <!-- Multiplayer 1v1 Room Config -->
+            <div id="multiplayerModeContainer" class="hidden">
+                <div class="ai-input-box" style="border-color: var(--accent-emerald); background: rgba(16, 185, 129, 0.08);">
+                    <label class="section-label" style="color: var(--accent-emerald);">
+                        <i class="fa-solid fa-users-rectangle"></i> Real-Time 1v1 Challenge Room
+                    </label>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">Create a challenge room code and invite a friend to race head-to-head on identical questions!</p>
+                    <div class="flex gap-2">
+                        <input id="roomCodeInput" type="text" placeholder="Enter Room Code (e.g. QUBRIX-99)" class="custom-input" style="margin-top:0;">
+                        <button id="createRoomBtn" class="param-btn" style="background: var(--accent-emerald); color: #fff; border: none; white-space: nowrap; padding: 0 16px;">Create Room</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Parameters -->
+            <div class="config-grid">
+                <div>
+                    <span class="section-label">Question Limit</span>
+                    <div class="btn-toggle-group four-cols">
+                        <button data-count="5" class="param-btn">5</button>
+                        <button data-count="10" class="param-btn selected">10</button>
+                        <button data-count="15" class="param-btn">15</button>
+                        <button data-count="20" class="param-btn">20</button>
+                    </div>
+                </div>
+                <div>
+                    <span class="section-label">Timer Speed</span>
+                    <div class="btn-toggle-group">
+                        <button data-timer="10" class="param-btn">10s</button>
+                        <button data-timer="15" class="param-btn selected">15s</button>
+                        <button data-timer="30" class="param-btn">30s</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="config-grid" style="margin-top: -16px; margin-bottom: 24px;">
+                <div>
+                    <span class="section-label">Visual Palette Theme</span>
+                    <select id="paletteSelect" class="custom-input" style="margin-top: 0; padding: 12px;">
+                        <option value="default">Midnight Indigo (Default)</option>
+                        <option value="cyberpunk">Cyberpunk Neon</option>
+                        <option value="emerald">Emerald Forest</option>
+                        <option value="oled">Pure OLED Dark</option>
+                    </select>
+                </div>
+            </div>
+
+            <button id="startBtn" class="btn-primary">
+                <span>Launch Qubrix Session</span>
+                <i class="fa-solid fa-bolt"></i>
+            </button>
+        </section>
+
+        <!-- ================= STEP 2: ACTIVE QUIZ SCREEN ================= -->
+        <section id="quizScreen" class="glass-panel hidden">
+            <!-- Gamification Header -->
+            <div class="quiz-status-bar">
+                <div class="flex items-center gap-3">
+                    <div class="streak-pill">
+                        <i class="fa-solid fa-fire"></i>
+                        <span id="streakCount">0 Streak</span>
+                    </div>
+                    <button id="bookmarkCurrentBtn" class="icon-btn" style="width: 32px; height: 32px; font-size: 0.8rem;" title="Bookmark Question">
+                        <i class="fa-regular fa-bookmark"></i>
+                    </button>
+                </div>
+                <div class="score-display">
+                    SCORE: <span id="liveScore" class="score-val">0</span>
+                </div>
+            </div>
+
+            <!-- Multiplayer Live Opponent Tracker -->
+            <div id="multiplayerLiveBar" class="hidden" style="margin-bottom: 16px; background: var(--bg-subtle); padding: 10px 14px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                <div class="flex justify-between items-center" style="font-size: 0.75rem; font-weight: 700; margin-bottom: 4px;">
+                    <span>⚡ 1v1 Race: You vs Rival</span>
+                    <span id="rivalProgressText">Rival Progress: Q1/10</span>
+                </div>
+                <div style="width: 100%; height: 6px; background: var(--bg-card); border-radius: 999px; overflow: hidden;">
+                    <div id="rivalProgressBar" style="width: 0%; height: 100%; background: var(--accent-rose); transition: width 0.4s;"></div>
+                </div>
+            </div>
+
+            <!-- Progress & Timer -->
+            <div class="question-header">
+                <div>
+                    <span id="questionCounter" class="section-label" style="margin: 0;">Question 1 of 10</span>
+                    <span id="questionCategoryBadge" class="section-label" style="color: var(--accent-cyan);">Quantum Computing</span>
+                </div>
+                <div class="timer-wrapper">
+                    <svg class="timer-svg">
+                        <circle cx="26" cy="26" r="22" class="timer-circle-bg"/>
+                        <circle id="timerCircle" cx="26" cy="26" r="22" class="timer-circle-progress"/>
+                    </svg>
+                    <span id="timerText" class="timer-text">15</span>
+                </div>
+            </div>
+
+            <div class="progress-bar-track">
+                <div id="progressBar" class="progress-bar-fill"></div>
+            </div>
+
+            <!-- Lifeline Bar -->
+            <div class="lifeline-bar">
+                <span class="section-label" style="margin: 0; margin-right: 4px;">Lifelines:</span>
+                <button id="lifeline5050" class="lifeline-btn">
+                    <i class="fa-solid fa-percent" style="color: var(--accent-purple);"></i> 50:50
+                </button>
+                <button id="lifelineTime" class="lifeline-btn">
+                    <i class="fa-solid fa-clock-rotate-left" style="color: var(--accent-emerald);"></i> +10s
+                </button>
+                <button id="lifelineSkip" class="lifeline-btn">
+                    <i class="fa-solid fa-forward" style="color: var(--accent-amber);"></i> Skip
+                </button>
+            </div>
+
+            <!-- Question Title & Options -->
+            <h2 id="questionText" class="question-title">Loading Qubrix Question...</h2>
+            <div id="optionsContainer" class="options-list"></div>
+
+            <div class="quiz-actions">
+                <button id="nextBtn" disabled class="btn-next">
+                    <span id="nextBtnText">Next Question</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- ================= STEP 3: RESULTS SCREEN ================= -->
+        <section id="resultScreen" class="glass-panel hidden">
+            <div class="results-header">
+                <div class="gauge-wrapper">
+                    <svg class="gauge-svg">
+                        <circle cx="75" cy="75" r="58" class="gauge-bg"/>
+                        <circle id="scoreGauge" cx="75" cy="75" r="58" class="gauge-fill"/>
+                    </svg>
+                    <div class="gauge-content">
+                        <span id="scorePercentage" class="gauge-percent">0%</span>
+                        <span id="passStatusBadge" class="status-badge passed">PASSED</span>
+                    </div>
+                </div>
+                <h2 style="font-family: var(--font-display); font-size: 1.6rem; margin-bottom: 4px;">Session Finished!</h2>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Comprehensive performance analysis for this session.</p>
+            </div>
+
+            <!-- AI Performance Insight Card -->
+            <div id="aiInsightBox" style="background: rgba(6, 182, 212, 0.08); border: 1px dashed var(--accent-cyan); border-radius: var(--radius-lg); padding: 18px; margin-bottom: 24px;">
+                <h4 style="font-size: 0.9rem; font-weight: 700; color: var(--accent-cyan); display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                    <i class="fa-solid fa-brain"></i> AI Diagnostic Performance Insight
+                </h4>
+                <p id="aiInsightText" style="font-size: 0.82rem; color: var(--text-main); line-height: 1.4;">Analyzing your session metrics...</p>
+            </div>
+
+            <div class="stats-summary-grid">
+                <div class="stat-card">
+                    <span class="stat-label">Total Score</span>
+                    <span id="statScore" class="stat-val">0 pts</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label" style="color: var(--accent-emerald);">Correct</span>
+                    <span id="statCorrect" class="stat-val" style="color: var(--accent-emerald);">0</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label" style="color: var(--accent-rose);">Incorrect</span>
+                    <span id="statIncorrect" class="stat-val" style="color: var(--accent-rose);">0</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label" style="color: var(--accent-amber);">Max Streak</span>
+                    <span id="statMaxStreak" class="stat-val" style="color: var(--accent-amber);">0</span>
+                </div>
+            </div>
+
+            <div>
+                <span class="section-label">Detailed Answer Breakdown</span>
+                <div id="breakdownContainer" class="review-list"></div>
+            </div>
+
+            <button id="restartBtn" class="btn-primary" style="margin-top: 16px;">
+                <i class="fa-solid fa-rotate-right"></i>
+                <span>Start New Session</span>
+            </button>
+        </section>
+    </main>
+
+    <!-- History & Heatmap Modal -->
+    <div id="historyModal" class="modal-overlay hidden">
+        <div class="modal-card">
+            <div class="flex justify-between items-center pb-3" style="border-bottom: 1px solid var(--border-color); margin-bottom: 16px;">
+                <h3 style="font-family: var(--font-display); font-weight: 700; display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-trophy" style="color: var(--accent-amber);"></i> Stats & Activity Heatmap
+                </h3>
+                <button id="closeHistoryBtn" class="icon-btn" style="border: none; background: transparent;">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            
+            <!-- 7-Day Activity Heatmap Container -->
+            <div style="background: var(--bg-subtle); padding: 14px; border-radius: var(--radius-md); margin-bottom: 16px; border: 1px solid var(--border-color);">
+                <span class="section-label" style="margin-bottom: 8px;">7-Day Consistency Streak</span>
+                <div id="heatmapGrid" class="flex justify-between" style="gap: 6px;"></div>
+            </div>
+
+            <div id="historyList" style="flex: 1; overflow-y: auto; padding-right: 4px;"></div>
+            <div class="flex justify-between items-center" style="margin-top: 16px; pt-12;">
+                <button id="clearHistoryBtn" style="background: none; border: none; color: var(--accent-rose); font-size: 0.8rem; font-weight: 700; cursor: pointer;">
+                    Clear Records
+                </button>
+                <button id="closeHistoryFooterBtn" class="param-btn" style="padding: 8px 16px;">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Flashcards Modal -->
+    <div id="flashcardsModal" class="modal-overlay hidden">
+        <div class="modal-card">
+            <div class="flex justify-between items-center pb-3" style="border-bottom: 1px solid var(--border-color); margin-bottom: 16px;">
+                <h3 style="font-family: var(--font-display); font-weight: 700; display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-bookmark" style="color: var(--accent-cyan);"></i> Saved Flashcard Bank
+                </h3>
+                <button id="closeFlashcardsBtn" class="icon-btn" style="border: none; background: transparent;">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div id="flashcardsList" style="flex: 1; overflow-y: auto; padding-right: 4px;"></div>
+            <div class="flex justify-end" style="margin-top: 16px;">
+                <button id="closeFlashcardsFooterBtn" class="param-btn" style="padding: 8px 16px;">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
