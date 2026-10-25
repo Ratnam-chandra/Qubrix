@@ -23,7 +23,7 @@
                 </div>
                 <div>
                     <h1 class="brand-title">Qubrix</h1>
-                    <p class="brand-tagline">Interactive Assessment Engine</p>
+                    <p class="brand-tagline">Assessment Engine</p>
                 </div>
             </div>
             <div class="flex items-center gap-2">
@@ -48,13 +48,13 @@
         <section id="startScreen" class="glass-panel">
             <div class="tab-group">
                 <button id="modeStandardBtn" class="tab-btn active">
-                    <i class="fa-solid fa-shapes"></i> Standard Topics
+                    <i class="fa-solid fa-shapes"></i> Topics
                 </button>
                 <button id="modeAiBtn" class="tab-btn">
-                    <i class="fa-solid fa-wand-magic-sparkles" style="color: var(--accent-cyan);"></i> Custom AI Topic
+                    <i class="fa-solid fa-wand-magic-sparkles" style="color: var(--accent-cyan);"></i> AI Topic
                 </button>
                 <button id="modeMultiplayerBtn" class="tab-btn">
-                    <i class="fa-solid fa-users-rectangle" style="color: var(--accent-emerald);"></i> 1v1 Challenge
+                    <i class="fa-solid fa-users-rectangle" style="color: var(--accent-emerald);"></i> 1v1 Race
                 </button>
             </div>
 
@@ -107,7 +107,7 @@
                     <label class="section-label" style="color: var(--accent-purple);">
                         <i class="fa-solid fa-wand-magic-sparkles"></i> Type Any Topic to Generate Questions
                     </label>
-                    <input id="aiTopicInput" type="text" placeholder="e.g. Astrophysics, React State Machines, Cyber Security" class="custom-input">
+                    <input id="aiTopicInput" type="text" placeholder="e.g. Astrophysics, React, Cyber Security" class="custom-input">
                 </div>
             </div>
 
@@ -117,10 +117,10 @@
                     <label class="section-label" style="color: var(--accent-emerald);">
                         <i class="fa-solid fa-users-rectangle"></i> Real-Time 1v1 Challenge Room
                     </label>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">Create a challenge room code and invite a friend to race head-to-head on identical questions!</p>
-                    <div class="flex gap-2">
-                        <input id="roomCodeInput" type="text" placeholder="Enter Room Code (e.g. QUBRIX-99)" class="custom-input" style="margin-top:0;">
-                        <button id="createRoomBtn" class="param-btn" style="background: var(--accent-emerald); color: #fff; border: none; white-space: nowrap; padding: 0 16px;">Create Room</button>
+                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">Create a challenge room code and race head-to-head on identical questions!</p>
+                    <div class="flex gap-2 flex-wrap">
+                        <input id="roomCodeInput" type="text" placeholder="Room Code (e.g. QUBRIX-99)" class="custom-input" style="margin-top:0; flex: 1;">
+                        <button id="createRoomBtn" class="param-btn" style="background: var(--accent-emerald); color: #fff; border: none; white-space: nowrap; padding: 12px 16px;">Create Room</button>
                     </div>
                 </div>
             </div>
@@ -146,10 +146,10 @@
                 </div>
             </div>
 
-            <div class="config-grid" style="margin-top: -16px; margin-bottom: 24px;">
+            <div class="config-grid" style="margin-top: -12px; margin-bottom: 20px;">
                 <div>
                     <span class="section-label">Visual Palette Theme</span>
-                    <select id="paletteSelect" class="custom-input" style="margin-top: 0; padding: 12px;">
+                    <select id="paletteSelect" class="custom-input" style="margin-top: 0; padding: 10px;">
                         <option value="default">Midnight Indigo (Default)</option>
                         <option value="cyberpunk">Cyberpunk Neon</option>
                         <option value="emerald">Emerald Forest</option>
@@ -168,12 +168,12 @@
         <section id="quizScreen" class="glass-panel hidden">
             <!-- Gamification Header -->
             <div class="quiz-status-bar">
-                <div class="flex items-center gap-3">
+                <div class="flex items-center gap-2">
                     <div class="streak-pill">
                         <i class="fa-solid fa-fire"></i>
                         <span id="streakCount">0 Streak</span>
                     </div>
-                    <button id="bookmarkCurrentBtn" class="icon-btn" style="width: 32px; height: 32px; font-size: 0.8rem;" title="Bookmark Question">
+                    <button id="bookmarkCurrentBtn" class="icon-btn" style="width: 32px; height: 32px; font-size: 0.75rem;" title="Bookmark Question">
                         <i class="fa-regular fa-bookmark"></i>
                     </button>
                 </div>
@@ -183,12 +183,12 @@
             </div>
 
             <!-- Multiplayer Live Opponent Tracker -->
-            <div id="multiplayerLiveBar" class="hidden" style="margin-bottom: 16px; background: var(--bg-subtle); padding: 10px 14px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-                <div class="flex justify-between items-center" style="font-size: 0.75rem; font-weight: 700; margin-bottom: 4px;">
+            <div id="multiplayerLiveBar" class="hidden" style="margin-bottom: 14px; background: var(--bg-subtle); padding: 8px 12px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                <div class="flex justify-between items-center" style="font-size: 0.7rem; font-weight: 700; margin-bottom: 4px;">
                     <span>⚡ 1v1 Race: You vs Rival</span>
                     <span id="rivalProgressText">Rival Progress: Q1/10</span>
                 </div>
-                <div style="width: 100%; height: 6px; background: var(--bg-card); border-radius: 999px; overflow: hidden;">
+                <div style="width: 100%; height: 5px; background: var(--bg-card); border-radius: 999px; overflow: hidden;">
                     <div id="rivalProgressBar" style="width: 0%; height: 100%; background: var(--accent-rose); transition: width 0.4s;"></div>
                 </div>
             </div>
@@ -201,8 +201,8 @@
                 </div>
                 <div class="timer-wrapper">
                     <svg class="timer-svg">
-                        <circle cx="26" cy="26" r="22" class="timer-circle-bg"/>
-                        <circle id="timerCircle" cx="26" cy="26" r="22" class="timer-circle-progress"/>
+                        <circle cx="23" cy="23" r="19" class="timer-circle-bg"/>
+                        <circle id="timerCircle" cx="23" cy="23" r="19" class="timer-circle-progress"/>
                     </svg>
                     <span id="timerText" class="timer-text">15</span>
                 </div>
@@ -214,7 +214,7 @@
 
             <!-- Lifeline Bar -->
             <div class="lifeline-bar">
-                <span class="section-label" style="margin: 0; margin-right: 4px;">Lifelines:</span>
+                <span class="section-label" style="margin: 0; margin-right: 2px;">Lifelines:</span>
                 <button id="lifeline5050" class="lifeline-btn">
                     <i class="fa-solid fa-percent" style="color: var(--accent-purple);"></i> 50:50
                 </button>
@@ -243,24 +243,24 @@
             <div class="results-header">
                 <div class="gauge-wrapper">
                     <svg class="gauge-svg">
-                        <circle cx="75" cy="75" r="58" class="gauge-bg"/>
-                        <circle id="scoreGauge" cx="75" cy="75" r="58" class="gauge-fill"/>
+                        <circle cx="65" cy="65" r="50" class="gauge-bg"/>
+                        <circle id="scoreGauge" cx="65" cy="65" r="50" class="gauge-fill"/>
                     </svg>
                     <div class="gauge-content">
                         <span id="scorePercentage" class="gauge-percent">0%</span>
                         <span id="passStatusBadge" class="status-badge passed">PASSED</span>
                     </div>
                 </div>
-                <h2 style="font-family: var(--font-display); font-size: 1.6rem; margin-bottom: 4px;">Session Finished!</h2>
-                <p style="font-size: 0.85rem; color: var(--text-muted);">Comprehensive performance analysis for this session.</p>
+                <h2 style="font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 4px;">Session Finished!</h2>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Comprehensive performance analysis for this session.</p>
             </div>
 
             <!-- AI Performance Insight Card -->
-            <div id="aiInsightBox" style="background: rgba(6, 182, 212, 0.08); border: 1px dashed var(--accent-cyan); border-radius: var(--radius-lg); padding: 18px; margin-bottom: 24px;">
-                <h4 style="font-size: 0.9rem; font-weight: 700; color: var(--accent-cyan); display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+            <div id="aiInsightBox" style="background: rgba(6, 182, 212, 0.08); border: 1px dashed var(--accent-cyan); border-radius: var(--radius-lg); padding: 14px; margin-bottom: 20px;">
+                <h4 style="font-size: 0.85rem; font-weight: 700; color: var(--accent-cyan); display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
                     <i class="fa-solid fa-brain"></i> AI Diagnostic Performance Insight
                 </h4>
-                <p id="aiInsightText" style="font-size: 0.82rem; color: var(--text-main); line-height: 1.4;">Analyzing your session metrics...</p>
+                <p id="aiInsightText" style="font-size: 0.78rem; color: var(--text-main); line-height: 1.35;">Analyzing session metrics...</p>
             </div>
 
             <div class="stats-summary-grid">
@@ -287,7 +287,7 @@
                 <div id="breakdownContainer" class="review-list"></div>
             </div>
 
-            <button id="restartBtn" class="btn-primary" style="margin-top: 16px;">
+            <button id="restartBtn" class="btn-primary" style="margin-top: 14px;">
                 <i class="fa-solid fa-rotate-right"></i>
                 <span>Start New Session</span>
             </button>
@@ -297,27 +297,27 @@
     <!-- History & Heatmap Modal -->
     <div id="historyModal" class="modal-overlay hidden">
         <div class="modal-card">
-            <div class="flex justify-between items-center pb-3" style="border-bottom: 1px solid var(--border-color); margin-bottom: 16px;">
-                <h3 style="font-family: var(--font-display); font-weight: 700; display: flex; align-items: center; gap: 8px;">
+            <div class="flex justify-between items-center pb-2" style="border-bottom: 1px solid var(--border-color); margin-bottom: 14px;">
+                <h3 style="font-family: var(--font-display); font-size: 1rem; font-weight: 700; display: flex; align-items: center; gap: 6px;">
                     <i class="fa-solid fa-trophy" style="color: var(--accent-amber);"></i> Stats & Activity Heatmap
                 </h3>
-                <button id="closeHistoryBtn" class="icon-btn" style="border: none; background: transparent;">
+                <button id="closeHistoryBtn" class="icon-btn" style="border: none; background: transparent; width: 32px; height: 32px;">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
             
             <!-- 7-Day Activity Heatmap Container -->
-            <div style="background: var(--bg-subtle); padding: 14px; border-radius: var(--radius-md); margin-bottom: 16px; border: 1px solid var(--border-color);">
-                <span class="section-label" style="margin-bottom: 8px;">7-Day Consistency Streak</span>
-                <div id="heatmapGrid" class="flex justify-between" style="gap: 6px;"></div>
+            <div style="background: var(--bg-subtle); padding: 12px; border-radius: var(--radius-md); margin-bottom: 14px; border: 1px solid var(--border-color);">
+                <span class="section-label" style="margin-bottom: 6px;">7-Day Consistency Streak</span>
+                <div id="heatmapGrid" class="flex justify-between" style="gap: 4px;"></div>
             </div>
 
             <div id="historyList" style="flex: 1; overflow-y: auto; padding-right: 4px;"></div>
-            <div class="flex justify-between items-center" style="margin-top: 16px; pt-12;">
-                <button id="clearHistoryBtn" style="background: none; border: none; color: var(--accent-rose); font-size: 0.8rem; font-weight: 700; cursor: pointer;">
+            <div class="flex justify-between items-center" style="margin-top: 14px;">
+                <button id="clearHistoryBtn" style="background: none; border: none; color: var(--accent-rose); font-size: 0.75rem; font-weight: 700; cursor: pointer;">
                     Clear Records
                 </button>
-                <button id="closeHistoryFooterBtn" class="param-btn" style="padding: 8px 16px;">Close</button>
+                <button id="closeHistoryFooterBtn" class="param-btn" style="padding: 6px 14px; font-size: 0.75rem;">Close</button>
             </div>
         </div>
     </div>
@@ -325,17 +325,17 @@
     <!-- Flashcards Modal -->
     <div id="flashcardsModal" class="modal-overlay hidden">
         <div class="modal-card">
-            <div class="flex justify-between items-center pb-3" style="border-bottom: 1px solid var(--border-color); margin-bottom: 16px;">
-                <h3 style="font-family: var(--font-display); font-weight: 700; display: flex; align-items: center; gap: 8px;">
+            <div class="flex justify-between items-center pb-2" style="border-bottom: 1px solid var(--border-color); margin-bottom: 14px;">
+                <h3 style="font-family: var(--font-display); font-size: 1rem; font-weight: 700; display: flex; align-items: center; gap: 6px;">
                     <i class="fa-solid fa-bookmark" style="color: var(--accent-cyan);"></i> Saved Flashcard Bank
                 </h3>
-                <button id="closeFlashcardsBtn" class="icon-btn" style="border: none; background: transparent;">
+                <button id="closeFlashcardsBtn" class="icon-btn" style="border: none; background: transparent; width: 32px; height: 32px;">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
             <div id="flashcardsList" style="flex: 1; overflow-y: auto; padding-right: 4px;"></div>
-            <div class="flex justify-end" style="margin-top: 16px;">
-                <button id="closeFlashcardsFooterBtn" class="param-btn" style="padding: 8px 16px;">Close</button>
+            <div class="flex justify-end" style="margin-top: 14px;">
+                <button id="closeFlashcardsFooterBtn" class="param-btn" style="padding: 6px 14px; font-size: 0.75rem;">Close</button>
             </div>
         </div>
     </div>
