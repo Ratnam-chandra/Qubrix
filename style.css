@@ -822,6 +822,60 @@ main {
     border: 1px solid var(--border-color);
 }
 
+/* XP, ACHIEVEMENTS & DASHBOARD ADDITIONS */
+.progression-panel {
+    margin: 18px 0 22px;
+    padding: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    background: var(--bg-subtle);
+}
+.progression-heading, .leaderboard-title, .player-name-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+.progression-heading h3 { font-family: var(--font-display); font-size: 1.05rem; margin-top: 3px; }
+.total-xp-pill { background: rgba(245, 158, 11, .12); color: var(--accent-amber); border: 1px solid rgba(245, 158, 11, .25); padding: 8px 10px; border-radius: 999px; font-size: .72rem; font-weight: 800; white-space: nowrap; }
+.progression-note { margin-top: 9px; color: var(--text-muted); font-size: .76rem; line-height: 1.5; }
+.achievement-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 8px; margin-top: 12px; }
+.achievement-chip { display: flex; align-items: center; gap: 9px; min-width: 0; padding: 10px; border-radius: var(--radius-md); border: 1px solid var(--border-color); background: var(--bg-card); }
+.achievement-chip > i:first-child { font-size: 1rem; color: var(--text-muted); }
+.achievement-chip.unlocked { border-color: rgba(16, 185, 129, .4); background: rgba(16, 185, 129, .08); }
+.achievement-chip.unlocked > i:first-child { color: var(--accent-amber); }
+.achievement-chip span { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
+.achievement-chip strong { font-size: .74rem; }
+.achievement-chip small { font-size: .64rem; line-height: 1.35; color: var(--text-muted); }
+.achievement-check { color: var(--accent-emerald); font-size: .75rem; }
+.achievement-lock { color: var(--text-muted); font-size: .7rem; }
+.dashboard-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-bottom: 14px; }
+.dashboard-stat { display: flex; flex-direction: column; gap: 5px; padding: 12px; border-radius: var(--radius-md); background: var(--bg-subtle); border: 1px solid var(--border-color); }
+.dashboard-stat span { color: var(--text-muted); font-size: .68rem; }
+.dashboard-stat strong { color: var(--accent-cyan); font-family: var(--font-display); font-size: 1.15rem; }
+.leaderboard-panel { border: 1px solid var(--border-color); background: var(--bg-subtle); padding: 12px; border-radius: var(--radius-lg); margin-bottom: 14px; }
+.leaderboard-title { margin-bottom: 10px; }
+.leaderboard-title h4 { font-size: .88rem; }
+.leaderboard-title span { font-size: .62rem; color: var(--text-muted); }
+.player-name-row { margin-bottom: 10px; }
+.player-name-row .custom-input { margin-top: 0; min-width: 0; padding: 9px 10px; font-size: .75rem; }
+.player-name-row .param-btn { white-space: nowrap; padding: 9px 10px; font-size: .7rem; }
+.leaderboard-list { display: flex; flex-direction: column; gap: 6px; }
+.leaderboard-row { display: flex; align-items: center; gap: 10px; padding: 9px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); }
+.leaderboard-rank { display: grid; place-items: center; min-width: 30px; height: 30px; border-radius: 9px; background: var(--bg-subtle); font-size: .7rem; font-weight: 800; }
+.rank-1 { color: var(--accent-amber); } .rank-2 { color: #94a3b8; } .rank-3 { color: #c08457; }
+.leaderboard-player { display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0; }
+.leaderboard-player strong { font-size: .76rem; overflow: hidden; text-overflow: ellipsis; }
+.leaderboard-player small { color: var(--text-muted); font-size: .62rem; }
+.leaderboard-score { color: var(--accent-cyan); font-size: .72rem; white-space: nowrap; }
+.dashboard-subheading { font-size: .78rem; font-weight: 800; margin: 12px 0 8px; }
+.empty-dashboard-note { padding: 14px 4px; color: var(--text-muted); text-align: center; font-size: .75rem; }
+@media (max-width: 480px) {
+    .progression-heading { align-items: flex-start; flex-direction: column; }
+    .achievement-list { grid-template-columns: 1fr; }
+    .player-name-row { align-items: stretch; }
+}
+
 /* MODAL DRAWER */
 .modal-overlay {
     position: fixed;

@@ -33,7 +33,7 @@
                 </button>
                 <button id="historyModalBtn" class="stats-badge-btn" title="View High Scores & Heatmap">
                     <i class="fa-solid fa-trophy" style="color: var(--accent-amber);"></i>
-                    <span>Stats</span>
+                    <span>Dashboard</span>
                 </button>
                 <button id="themeToggle" class="icon-btn" title="Toggle Theme">
                     <i id="themeIcon" class="fa-solid fa-moon"></i>
@@ -52,9 +52,6 @@
                 </button>
                 <button id="modeAiBtn" class="tab-btn">
                     <i class="fa-solid fa-wand-magic-sparkles" style="color: var(--accent-cyan);"></i> AI Topic
-                </button>
-                <button id="modeMultiplayerBtn" class="tab-btn">
-                    <i class="fa-solid fa-users-rectangle" style="color: var(--accent-emerald);"></i> 1v1 Race
                 </button>
             </div>
 
@@ -98,6 +95,42 @@
                         <p>Deep Learning & Neural Networks</p>
                         <span class="q-count-pill">10 Questions</span>
                     </div>
+                    <div data-topic="python" class="topic-card">
+                        <i class="fa-brands fa-python" style="color: var(--accent-cyan);"></i>
+                        <h3>Python Programming</h3>
+                        <p>Syntax, Collections & Exceptions</p>
+                        <span class="q-count-pill">10 Questions</span>
+                    </div>
+                    <div data-topic="dbms" class="topic-card">
+                        <i class="fa-solid fa-database" style="color: var(--accent-amber);"></i>
+                        <h3>Database Management</h3>
+                        <p>SQL, Keys & Transactions</p>
+                        <span class="q-count-pill">10 Questions</span>
+                    </div>
+                    <div data-topic="cyber" class="topic-card">
+                        <i class="fa-solid fa-shield-halved" style="color: var(--accent-emerald);"></i>
+                        <h3>Cybersecurity</h3>
+                        <p>Privacy, Threats & Protection</p>
+                        <span class="q-count-pill">10 Questions</span>
+                    </div>
+                    <div data-topic="networking" class="topic-card">
+                        <i class="fa-solid fa-network-wired" style="color: var(--accent-purple);"></i>
+                        <h3>Computer Networking</h3>
+                        <p>Protocols, IP & Topologies</p>
+                        <span class="q-count-pill">10 Questions</span>
+                    </div>
+                    <div data-topic="os" class="topic-card">
+                        <i class="fa-solid fa-microchip" style="color: var(--accent-rose);"></i>
+                        <h3>Operating Systems</h3>
+                        <p>Processes, Memory & Scheduling</p>
+                        <span class="q-count-pill">10 Questions</span>
+                    </div>
+                    <div data-topic="datasci" class="topic-card">
+                        <i class="fa-solid fa-chart-line" style="color: var(--accent-cyan);"></i>
+                        <h3>Data Science</h3>
+                        <p>Statistics, Data & Machine Learning</p>
+                        <span class="q-count-pill">10 Questions</span>
+                    </div>
                 </div>
             </div>
 
@@ -110,19 +143,6 @@
                     <input id="aiTopicInput" type="text" placeholder="e.g. Astrophysics, React, Cyber Security" class="custom-input">
                 </div>
             </div>
-
-            <!-- Multiplayer 1v1 Room Config -->
-            <div id="multiplayerModeContainer" class="hidden">
-                <div class="ai-input-box" style="border-color: var(--accent-emerald); background: rgba(16, 185, 129, 0.08);">
-                    <label class="section-label" style="color: var(--accent-emerald);">
-                        <i class="fa-solid fa-users-rectangle"></i> Real-Time 1v1 Challenge Room
-                    </label>
-                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">Create a challenge room code and race head-to-head on identical questions!</p>
-                    <div class="flex gap-2 flex-wrap">
-                        <input id="roomCodeInput" type="text" placeholder="Room Code (e.g. QUBRIX-99)" class="custom-input" style="margin-top:0; flex: 1;">
-                        <button id="createRoomBtn" class="param-btn" style="background: var(--accent-emerald); color: #fff; border: none; white-space: nowrap; padding: 12px 16px;">Create Room</button>
-                    </div>
-                </div>
             </div>
 
             <!-- Quiz Parameters -->
@@ -181,16 +201,6 @@
                     SCORE: <span id="liveScore" class="score-val">0</span>
                 </div>
             </div>
-
-            <!-- Multiplayer Live Opponent Tracker -->
-            <div id="multiplayerLiveBar" class="hidden" style="margin-bottom: 14px; background: var(--bg-subtle); padding: 8px 12px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-                <div class="flex justify-between items-center" style="font-size: 0.7rem; font-weight: 700; margin-bottom: 4px;">
-                    <span>⚡ 1v1 Race: You vs Rival</span>
-                    <span id="rivalProgressText">Rival Progress: Q1/10</span>
-                </div>
-                <div style="width: 100%; height: 5px; background: var(--bg-card); border-radius: 999px; overflow: hidden;">
-                    <div id="rivalProgressBar" style="width: 0%; height: 100%; background: var(--accent-rose); transition: width 0.4s;"></div>
-                </div>
             </div>
 
             <!-- Progress & Timer -->
@@ -282,6 +292,19 @@
                 </div>
             </div>
 
+            <!-- XP and achievements -->
+            <div class="progression-panel">
+                <div class="progression-heading">
+                    <div>
+                        <span class="section-label">YOUR PROGRESSION</span>
+                        <h3><i class="fa-solid fa-bolt" style="color: var(--accent-amber);"></i> <span id="xpEarned">+0 XP</span> earned this session</h3>
+                    </div>
+                    <div class="total-xp-pill"><i class="fa-solid fa-star"></i> Total XP: <span id="totalXp">0</span></div>
+                </div>
+                <p id="xpMessage" class="progression-note">Keep learning to earn XP and unlock achievements.</p>
+                <div id="achievementList" class="achievement-list"></div>
+            </div>
+
             <div>
                 <span class="section-label">Detailed Answer Breakdown</span>
                 <div id="breakdownContainer" class="review-list"></div>
@@ -312,6 +335,21 @@
                 <div id="heatmapGrid" class="flex justify-between" style="gap: 4px;"></div>
             </div>
 
+            <div class="dashboard-grid">
+                <div class="dashboard-stat"><span>Quizzes played</span><strong id="dashQuizzes">0</strong></div>
+                <div class="dashboard-stat"><span>Average accuracy</span><strong id="dashAccuracy">0%</strong></div>
+                <div class="dashboard-stat"><span>Best score</span><strong id="dashBestScore">0</strong></div>
+                <div class="dashboard-stat"><span>Total XP</span><strong id="dashTotalXp">0</strong></div>
+            </div>
+            <div class="leaderboard-panel">
+                <div class="leaderboard-title"><h4><i class="fa-solid fa-ranking-star" style="color: var(--accent-amber);"></i> Leaderboard</h4><span>Saved on this device</span></div>
+                <div class="player-name-row">
+                    <input id="playerNameInput" class="custom-input" maxlength="24" placeholder="Enter player name" aria-label="Player name">
+                    <button id="savePlayerNameBtn" class="param-btn">Save name</button>
+                </div>
+                <div id="leaderboardList" class="leaderboard-list"></div>
+            </div>
+            <div class="dashboard-subheading">Recent quiz history</div>
             <div id="historyList" style="flex: 1; overflow-y: auto; padding-right: 4px;"></div>
             <div class="flex justify-between items-center" style="margin-top: 14px;">
                 <button id="clearHistoryBtn" style="background: none; border: none; color: var(--accent-rose); font-size: 0.75rem; font-weight: 700; cursor: pointer;">

@@ -76,6 +76,78 @@ const questionBank = {
         { id: 't8', question: "What metric evaluates precision vs recall balance in classification?", options: ["F1-Score", "Mean Squared Error", "Accuracy", "R-Squared"], answer: 0, explanation: "F1-Score is the harmonic mean of precision and recall." },
         { id: 't9', question: "What type of learning uses unlabelled data to find hidden patterns?", options: ["Unsupervised Learning", "Supervised Learning", "Reinforcement Learning", "Semi-supervised Learning"], answer: 0, explanation: "Unsupervised learning discovers structure without ground truth labels." },
         { id: 't10', question: "What is a 'Hallucination' in Large Language Models?", options: ["Generating confident but factually incorrect statements", "Model shutting down due to memory overflow", "Slowing down inference speed", "Encoding text into binary"], answer: 0, explanation: "Hallucinations occur when an LLM outputs plausible-sounding false information." }
+    ],
+    python: [
+        {"id": "python1", "question": "Which keyword defines a function in Python?", "options": ["def", "func", "function", "define"], "answer": 0, "explanation": "The def keyword begins a function definition."},
+        {"id": "python2", "question": "Which collection stores ordered, changeable items?", "options": ["list", "tuple", "set", "frozenset"], "answer": 0, "explanation": "A list preserves order and can be modified."},
+        {"id": "python3", "question": "What does len([2, 4, 6]) return?", "options": ["3", "2", "6", "12"], "answer": 0, "explanation": "The list contains three elements."},
+        {"id": "python4", "question": "Which symbol starts a single-line comment in Python?", "options": ["#", "//", "<!--", "**"], "answer": 0, "explanation": "Python uses # for comments."},
+        {"id": "python5", "question": "What is the result of 7 // 2?", "options": ["3", "3.5", "4", "1"], "answer": 0, "explanation": "Floor division returns the quotient rounded down."},
+        {"id": "python6", "question": "Which data type represents True or False?", "options": ["bool", "str", "float", "list"], "answer": 0, "explanation": "bool is Python’s Boolean type."},
+        {"id": "python7", "question": "Which structure handles exceptions?", "options": ["try/except", "if/else only", "for/in", "def/return"], "answer": 0, "explanation": "try/except catches and handles exceptions."},
+        {"id": "python8", "question": "Which method adds one item to a list?", "options": ["append()", "addAll()", "pushBack()", "insertEnd()"], "answer": 0, "explanation": "append() adds one item to the end of a list."},
+        {"id": "python9", "question": "What does a dictionary store?", "options": ["Key-value pairs", "Only indexed values", "Only unique values", "A sequence of characters"], "answer": 0, "explanation": "Dictionaries map keys to values."},
+        {"id": "python10", "question": "Which statement imports a module?", "options": ["import", "include", "using", "require"], "answer": 0, "explanation": "import loads a module into the current namespace."},
+    ],
+    dbms: [
+        {"id": "dbms1", "question": "What does SQL stand for?", "options": ["Structured Query Language", "Sequential Question Logic", "Simple Query Link", "System Quality Language"], "answer": 0, "explanation": "SQL is the standard language for relational databases."},
+        {"id": "dbms2", "question": "Which key uniquely identifies a row?", "options": ["Primary key", "Foreign key", "Duplicate key", "Nullable key"], "answer": 0, "explanation": "A primary key uniquely identifies each table row."},
+        {"id": "dbms3", "question": "Which command retrieves rows from a table?", "options": ["SELECT", "FETCHTABLE", "GETROW", "READ"], "answer": 0, "explanation": "SELECT queries data from database tables."},
+        {"id": "dbms4", "question": "What does a foreign key do?", "options": ["References a key in another or the same table", "Encrypts every column", "Sorts rows automatically", "Creates a backup"], "answer": 0, "explanation": "Foreign keys enforce referential relationships."},
+        {"id": "dbms5", "question": "Which property means a transaction is all-or-nothing?", "options": ["Atomicity", "Isolation", "Durability", "Consistency"], "answer": 0, "explanation": "Atomicity prevents partial transaction completion."},
+        {"id": "dbms6", "question": "Which command removes a table definition?", "options": ["DROP TABLE", "DELETE ROW", "REMOVE DATABASE ROW", "CLEAR COLUMN"], "answer": 0, "explanation": "DROP TABLE removes the table itself."},
+        {"id": "dbms7", "question": "What is database normalization mainly used for?", "options": ["Reducing redundancy and update anomalies", "Increasing duplicate records", "Encrypting passwords", "Compressing images"], "answer": 0, "explanation": "Normalization organizes data to reduce redundancy and anomalies."},
+        {"id": "dbms8", "question": "Which SQL clause filters grouped results?", "options": ["HAVING", "WHERE only", "ORDER BY", "VALUES"], "answer": 0, "explanation": "HAVING filters groups after aggregation."},
+        {"id": "dbms9", "question": "What is an index used for?", "options": ["Speeding up data retrieval", "Replacing all constraints", "Guaranteeing no duplicates in every column", "Storing application screenshots"], "answer": 0, "explanation": "Indexes can accelerate lookups at the cost of storage and writes."},
+        {"id": "dbms10", "question": "What does COMMIT do?", "options": ["Makes transaction changes permanent", "Undo all changes", "Deletes the database", "Starts a new table"], "answer": 0, "explanation": "COMMIT saves the current transaction changes."},
+    ],
+    cyber: [
+        {"id": "cyber1", "question": "What is phishing?", "options": ["A deceptive attempt to steal sensitive information", "A method of cooling servers", "A database sorting method", "A file compression format"], "answer": 0, "explanation": "Phishing uses deceptive messages or sites to capture information."},
+        {"id": "cyber2", "question": "Which is the strongest password practice?", "options": ["Use a long, unique password for each account", "Reuse one short password", "Include only your name", "Share it with teammates"], "answer": 0, "explanation": "Unique long passwords limit the impact of account compromise."},
+        {"id": "cyber3", "question": "What does MFA add to account security?", "options": ["More than one verification factor", "A larger screen", "Automatic public sharing", "Fewer authentication checks"], "answer": 0, "explanation": "Multi-factor authentication requires multiple factor types."},
+        {"id": "cyber4", "question": "What is ransomware designed to do?", "options": ["Lock or encrypt data and demand payment", "Improve file backups", "Remove all software bugs", "Increase Wi-Fi range"], "answer": 0, "explanation": "Ransomware commonly blocks access to data for extortion."},
+        {"id": "cyber5", "question": "Why install security updates?", "options": ["To patch known vulnerabilities", "To disable authentication", "To make passwords public", "To remove encryption"], "answer": 0, "explanation": "Updates often fix security weaknesses."},
+        {"id": "cyber6", "question": "What does HTTPS help protect in transit?", "options": ["Data exchanged between browser and website", "The physical keyboard", "All files on a lost laptop automatically", "A device from every possible attack"], "answer": 0, "explanation": "HTTPS encrypts and authenticates the connection to a site."},
+        {"id": "cyber7", "question": "What is the principle of least privilege?", "options": ["Give users only access they need", "Give everyone administrator access", "Disable all user accounts", "Share one account with all users"], "answer": 0, "explanation": "Least privilege limits permissions to what is necessary."},
+        {"id": "cyber8", "question": "What is a firewall commonly used for?", "options": ["Filtering network traffic by rules", "Writing source code", "Creating strong passwords automatically", "Repairing broken screens"], "answer": 0, "explanation": "Firewalls allow or block traffic based on configured rules."},
+        {"id": "cyber9", "question": "What should you do with an unexpected attachment?", "options": ["Verify the sender and context before opening", "Open it immediately", "Forward it to everyone", "Disable antivirus first"], "answer": 0, "explanation": "Unexpected attachments may contain malicious content."},
+        {"id": "cyber10", "question": "What is a software vulnerability?", "options": ["A weakness that could be exploited", "A confirmed backup", "A strong encryption key", "A normal screen resolution"], "answer": 0, "explanation": "Vulnerabilities are flaws that attackers may exploit."},
+    ],
+    networking: [
+        {"id": "networking1", "question": "What does IP stand for in networking?", "options": ["Internet Protocol", "Internal Program", "Interface Process", "Integrated Port"], "answer": 0, "explanation": "IP addresses and routes packets across networks."},
+        {"id": "networking2", "question": "Which device forwards packets between networks?", "options": ["Router", "Keyboard", "Repeater only", "Printer"], "answer": 0, "explanation": "Routers forward packets between IP networks."},
+        {"id": "networking3", "question": "Which protocol commonly maps a domain name to an IP address?", "options": ["DNS", "FTP", "SMTP", "SSH"], "answer": 0, "explanation": "DNS resolves domain names to records such as IP addresses."},
+        {"id": "networking4", "question": "What is the usual default port for HTTPS?", "options": ["443", "80", "21", "25"], "answer": 0, "explanation": "HTTPS commonly uses TCP port 443."},
+        {"id": "networking5", "question": "Which protocol reliably delivers an ordered byte stream?", "options": ["TCP", "UDP", "ARP", "ICMP"], "answer": 0, "explanation": "TCP provides reliable, ordered byte-stream delivery."},
+        {"id": "networking6", "question": "What is a LAN?", "options": ["Local Area Network", "Long Access Number", "Linked Application Node", "Logical Address Name"], "answer": 0, "explanation": "A LAN connects devices in a limited local area."},
+        {"id": "networking7", "question": "Which address is associated with a network interface at the link layer?", "options": ["MAC address", "URL path", "Domain suffix", "Process ID"], "answer": 0, "explanation": "A MAC address identifies a network interface on a local link."},
+        {"id": "networking8", "question": "What does DHCP commonly provide automatically?", "options": ["IP configuration to clients", "Website HTML content", "Email encryption keys", "CPU scheduling"], "answer": 0, "explanation": "DHCP leases IP addresses and related network settings."},
+        {"id": "networking9", "question": "What is bandwidth?", "options": ["A measure of data-carrying capacity", "The physical length of a cable only", "A device password", "The number of files in a folder"], "answer": 0, "explanation": "Bandwidth describes a link’s data capacity."},
+        {"id": "networking10", "question": "Which topology connects devices to a central switch?", "options": ["Star", "Ring", "Bus", "Full mesh only"], "answer": 0, "explanation": "In a star topology, devices connect through a central point."},
+    ],
+    os: [
+        {"id": "os1", "question": "What is the main role of an operating system?", "options": ["Managing hardware and software resources", "Designing web page colors", "Translating every website automatically", "Replacing application data"], "answer": 0, "explanation": "An OS manages resources and provides services to applications."},
+        {"id": "os2", "question": "What is a process?", "options": ["A program in execution", "A stored image file", "A network cable", "A type of database key"], "answer": 0, "explanation": "A process is a running instance of a program."},
+        {"id": "os3", "question": "Which scheduling algorithm serves processes in arrival order?", "options": ["FCFS", "Round Robin", "Shortest Remaining Time", "Priority only"], "answer": 0, "explanation": "First-Come, First-Served schedules in arrival order."},
+        {"id": "os4", "question": "What is a thread?", "options": ["A unit of execution within a process", "A physical hard drive", "A database relationship", "A network address"], "answer": 0, "explanation": "Threads are execution flows within a process."},
+        {"id": "os5", "question": "What is virtual memory?", "options": ["A memory-management technique using secondary storage as backing", "A second physical CPU", "A cache-only database", "A type of monitor"], "answer": 0, "explanation": "Virtual memory provides an address space beyond available RAM."},
+        {"id": "os6", "question": "Which condition describes deadlock?", "options": ["Processes wait indefinitely for resources held by one another", "A program finishes normally", "A CPU is idle for one millisecond", "A file is compressed"], "answer": 0, "explanation": "Deadlock can occur when processes form a circular wait."},
+        {"id": "os7", "question": "What does a context switch do?", "options": ["Switches CPU execution from one task to another", "Deletes every process", "Formats RAM", "Changes the monitor resolution"], "answer": 0, "explanation": "The OS saves and restores execution state during a context switch."},
+        {"id": "os8", "question": "Which memory is typically fastest among these?", "options": ["CPU registers", "SSD storage", "Hard disk", "Optical disc"], "answer": 0, "explanation": "CPU registers are directly inside the processor and extremely fast."},
+        {"id": "os9", "question": "What is a system call?", "options": ["A request for a service from the OS kernel", "A call to a friend", "A CSS selector", "A database index"], "answer": 0, "explanation": "System calls let programs request kernel-managed services."},
+        {"id": "os10", "question": "What is paging?", "options": ["Dividing memory into fixed-size pages and frames", "Scheduling only by priority", "Encrypting process names", "Connecting computers in a ring"], "answer": 0, "explanation": "Paging maps fixed-size virtual pages to physical frames."},
+    ],
+    datasci: [
+        {"id": "datasci1", "question": "What is the mean of 2, 4, and 6?", "options": ["4", "3", "6", "12"], "answer": 0, "explanation": "The mean is (2 + 4 + 6) / 3 = 4."},
+        {"id": "datasci2", "question": "What does a median represent?", "options": ["The middle value after sorting", "The largest value always", "The sum of all values", "The most frequent file type"], "answer": 0, "explanation": "The median is the middle sorted value, or the average of two middle values."},
+        {"id": "datasci3", "question": "What is a dataset used to train a model called?", "options": ["Training set", "Production log only", "CSS bundle", "Encryption key"], "answer": 0, "explanation": "The training set is used to fit model parameters."},
+        {"id": "datasci4", "question": "What is overfitting?", "options": ["A model fits training data too closely and generalizes poorly", "A model has no parameters", "A dataset contains no rows", "A chart has too many colors"], "answer": 0, "explanation": "Overfit models perform well on training examples but poorly on unseen data."},
+        {"id": "datasci5", "question": "Which chart is useful for showing a distribution of numeric values?", "options": ["Histogram", "Logo", "Flowchart only", "Network cable diagram"], "answer": 0, "explanation": "Histograms show frequencies across numeric bins."},
+        {"id": "datasci6", "question": "What does correlation measure?", "options": ["The strength and direction of association between variables", "Proof that one variable causes another", "The total number of records only", "The file size of a dataset"], "answer": 0, "explanation": "Correlation describes association, not necessarily causation."},
+        {"id": "datasci7", "question": "Why split data into training and test sets?", "options": ["To evaluate performance on unseen data", "To guarantee perfect accuracy", "To remove all missing values automatically", "To increase the number of labels"], "answer": 0, "explanation": "A test set estimates generalization on data not used for fitting."},
+        {"id": "datasci8", "question": "Which task predicts a continuous numeric value?", "options": ["Regression", "Classification", "Clustering only", "Tokenization"], "answer": 0, "explanation": "Regression models continuous outputs."},
+        {"id": "datasci9", "question": "What is a feature in machine learning?", "options": ["An input variable used by a model", "The final report title", "A database password", "A chart background"], "answer": 0, "explanation": "Features are input attributes used to make predictions."},
+        {"id": "datasci10", "question": "What does data cleaning often involve?", "options": ["Handling missing, duplicated, or inconsistent records", "Adding random errors", "Deleting all valid rows", "Changing every number to text"], "answer": 0, "explanation": "Cleaning improves data quality and consistency."},
     ]
 };
 
@@ -128,10 +200,6 @@ let timerInterval = null;
 let timeLeft = 15;
 let lifelines = { fiftyFifty: true, timeExtend: true, skip: true };
 
-// Multiplayer Simulation State
-let isMultiplayer = false;
-let rivalProgress = 0;
-let rivalTimer = null;
 
 // ================= DOM ELEMENTS =================
 const themeToggle = document.getElementById('themeToggle');
@@ -144,13 +212,9 @@ const resultScreen = document.getElementById('resultScreen');
 
 const modeStandardBtn = document.getElementById('modeStandardBtn');
 const modeAiBtn = document.getElementById('modeAiBtn');
-const modeMultiplayerBtn = document.getElementById('modeMultiplayerBtn');
 const standardModeContainer = document.getElementById('standardModeContainer');
 const aiModeContainer = document.getElementById('aiModeContainer');
-const multiplayerModeContainer = document.getElementById('multiplayerModeContainer');
 const aiTopicInput = document.getElementById('aiTopicInput');
-const roomCodeInput = document.getElementById('roomCodeInput');
-const createRoomBtn = document.getElementById('createRoomBtn');
 
 const startBtn = document.getElementById('startBtn');
 const nextBtn = document.getElementById('nextBtn');
@@ -172,9 +236,6 @@ const lifeline5050 = document.getElementById('lifeline5050');
 const lifelineTime = document.getElementById('lifelineTime');
 const lifelineSkip = document.getElementById('lifelineSkip');
 
-const multiplayerLiveBar = document.getElementById('multiplayerLiveBar');
-const rivalProgressBar = document.getElementById('rivalProgressBar');
-const rivalProgressText = document.getElementById('rivalProgressText');
 
 const historyModal = document.getElementById('historyModal');
 const historyModalBtn = document.getElementById('historyModalBtn');
@@ -183,6 +244,17 @@ const closeHistoryFooterBtn = document.getElementById('closeHistoryFooterBtn');
 const clearHistoryBtn = document.getElementById('clearHistoryBtn');
 const historyList = document.getElementById('historyList');
 const heatmapGrid = document.getElementById('heatmapGrid');
+const dashQuizzes = document.getElementById('dashQuizzes');
+const dashAccuracy = document.getElementById('dashAccuracy');
+const dashBestScore = document.getElementById('dashBestScore');
+const dashTotalXp = document.getElementById('dashTotalXp');
+const playerNameInput = document.getElementById('playerNameInput');
+const savePlayerNameBtn = document.getElementById('savePlayerNameBtn');
+const leaderboardList = document.getElementById('leaderboardList');
+const xpEarnedEl = document.getElementById('xpEarned');
+const totalXpEl = document.getElementById('totalXp');
+const xpMessageEl = document.getElementById('xpMessage');
+const achievementList = document.getElementById('achievementList');
 
 const flashcardsModal = document.getElementById('flashcardsModal');
 const flashcardsBtn = document.getElementById('flashcardsBtn');
@@ -226,42 +298,18 @@ paletteSelect.addEventListener('change', (e) => {
 // ================= MODE & PARAMETER HANDLERS =================
 modeStandardBtn.addEventListener('click', () => {
     currentMode = "standard";
-    isMultiplayer = false;
     modeStandardBtn.classList.add('active');
     modeAiBtn.classList.remove('active');
-    modeMultiplayerBtn.classList.remove('active');
     standardModeContainer.classList.remove('hidden');
     aiModeContainer.classList.add('hidden');
-    multiplayerModeContainer.classList.add('hidden');
 });
 
 modeAiBtn.addEventListener('click', () => {
     currentMode = "ai";
-    isMultiplayer = false;
     modeAiBtn.classList.add('active');
     modeStandardBtn.classList.remove('active');
-    modeMultiplayerBtn.classList.remove('active');
     aiModeContainer.classList.remove('hidden');
     standardModeContainer.classList.add('hidden');
-    multiplayerModeContainer.classList.add('hidden');
-});
-
-modeMultiplayerBtn.addEventListener('click', () => {
-    currentMode = "multiplayer";
-    isMultiplayer = true;
-    modeMultiplayerBtn.classList.add('active');
-    modeStandardBtn.classList.remove('active');
-    modeAiBtn.classList.remove('active');
-    multiplayerModeContainer.classList.remove('hidden');
-    standardModeContainer.classList.add('hidden');
-    aiModeContainer.classList.add('hidden');
-});
-
-createRoomBtn.addEventListener('click', () => {
-    const code = roomCodeInput.value.trim() || `QUBRIX-${Math.floor(1000 + Math.random() * 9000)}`;
-    roomCodeInput.value = code;
-    alert(`Room "${code}" created successfully! Launching session against simulated rival.`);
-    startQuiz();
 });
 
 document.querySelectorAll('.topic-card').forEach(card => {
@@ -329,7 +377,13 @@ function startQuiz() {
             webdev: 'Web Development', 
             cs: 'Computer Science', 
             gk: 'General Science', 
-            tech: 'AI & Machine Learning' 
+            tech: 'AI & Machine Learning',
+            python: 'Python Programming',
+            dbms: 'Database Management Systems',
+            cyber: 'Cybersecurity',
+            networking: 'Computer Networking',
+            os: 'Operating Systems',
+            datasci: 'Data Science'
         };
         questionCategoryBadge.textContent = categoryNames[selectedTopic] || 'General';
     }
@@ -345,13 +399,6 @@ function startQuiz() {
     liveScoreEl.textContent = '0';
     streakCount.textContent = '0 Streak';
 
-    if (isMultiplayer) {
-        multiplayerLiveBar.classList.remove('hidden');
-        rivalProgress = 0;
-        startRivalSimulation();
-    } else {
-        multiplayerLiveBar.classList.add('hidden');
-    }
 
     startScreen.classList.add('hidden');
     resultScreen.classList.add('hidden');
@@ -360,19 +407,6 @@ function startQuiz() {
     renderQuestion();
 }
 
-function startRivalSimulation() {
-    clearInterval(rivalTimer);
-    rivalTimer = setInterval(() => {
-        if (rivalProgress < activeQuestions.length) {
-            if (Math.random() > 0.35) {
-                rivalProgress++;
-                const pct = (rivalProgress / activeQuestions.length) * 100;
-                rivalProgressBar.style.width = `${pct}%`;
-                rivalProgressText.textContent = `Rival Progress: Q${rivalProgress}/${activeQuestions.length}`;
-            }
-        }
-    }, 2800);
-}
 
 function renderQuestion() {
     clearInterval(timerInterval);
@@ -580,9 +614,107 @@ function updateLifelines() {
     lifelineSkip.disabled = !lifelines.skip;
 }
 
+// ================= XP, ACHIEVEMENTS & PLAYER PROFILE =================
+const ACHIEVEMENTS = [
+    { id: 'first_quiz', title: 'First Steps', description: 'Complete your first quiz', icon: 'fa-flag-checkered', test: stats => stats.quizzes >= 1 },
+    { id: 'perfect_score', title: 'Perfect Run', description: 'Get 100% accuracy in a quiz', icon: 'fa-bullseye', test: stats => stats.perfect >= 1 },
+    { id: 'streak_3', title: 'On a Roll', description: 'Get a streak of 3 correct answers', icon: 'fa-fire', test: stats => stats.bestStreak >= 3 },
+    { id: 'quiz_5', title: 'Quiz Explorer', description: 'Complete 5 quizzes', icon: 'fa-compass', test: stats => stats.quizzes >= 5 },
+    { id: 'xp_500', title: 'XP Collector', description: 'Earn 500 total XP', icon: 'fa-star', test: stats => stats.totalXP >= 500 }
+];
+
+function getPlayerName() {
+    return (localStorage.getItem('qubrixPlayerName') || 'Player').trim() || 'Player';
+}
+
+function getHistory() {
+    try { return JSON.parse(localStorage.getItem('qubrixHistory') || '[]'); }
+    catch { return []; }
+}
+
+function getLeaderboard() {
+    try { return JSON.parse(localStorage.getItem('qubrixLeaderboard') || '[]'); }
+    catch { return []; }
+}
+
+function getUnlockedAchievements() {
+    try { return JSON.parse(localStorage.getItem('qubrixAchievements') || '[]'); }
+    catch { return []; }
+}
+
+function awardProgression(percentage, correctCount) {
+    const history = getHistory();
+    const previousTotal = Number(localStorage.getItem('qubrixTotalXP') || 0);
+    const xpEarned = (correctCount * 20) + (maxStreak * 5);
+    const totalXP = previousTotal + xpEarned;
+    localStorage.setItem('qubrixTotalXP', String(totalXP));
+
+    const record = {
+        name: getPlayerName(),
+        date: new Date().toLocaleDateString(),
+        category: questionCategoryBadge.textContent,
+        score: liveScore,
+        percentage,
+        xp: xpEarned,
+        maxStreak,
+        timestamp: Date.now()
+    };
+    history.unshift(record);
+    localStorage.setItem('qubrixHistory', JSON.stringify(history.slice(0, 100)));
+
+    const leaderboard = getLeaderboard();
+    leaderboard.push(record);
+    leaderboard.sort((a, b) => (Number(b.score) || 0) - (Number(a.score) || 0));
+    localStorage.setItem('qubrixLeaderboard', JSON.stringify(leaderboard.slice(0, 10)));
+
+    const stats = {
+        quizzes: history.length,
+        perfect: history.filter(item => Number(item.percentage) === 100).length,
+        bestStreak: Math.max(maxStreak, ...history.map(item => Number(item.maxStreak) || 0)),
+        totalXP
+    };
+    const unlocked = getUnlockedAchievements();
+    const newlyUnlocked = [];
+    ACHIEVEMENTS.forEach(achievement => {
+        if (achievement.test(stats) && !unlocked.includes(achievement.id)) {
+            unlocked.push(achievement.id);
+            newlyUnlocked.push(achievement.title);
+        }
+    });
+    localStorage.setItem('qubrixAchievements', JSON.stringify(unlocked));
+    xpEarnedEl.textContent = `+${xpEarned} XP`;
+    totalXpEl.textContent = totalXP.toLocaleString();
+    xpMessageEl.textContent = newlyUnlocked.length
+        ? `Achievement unlocked: ${newlyUnlocked.join(', ')}! Keep going!`
+        : 'Correct answers earn 20 XP each, plus 5 XP for every answer in your best streak.';
+    renderAchievements();
+}
+
+function renderAchievements() {
+    const unlocked = getUnlockedAchievements();
+    achievementList.innerHTML = '';
+    ACHIEVEMENTS.forEach(achievement => {
+        const isUnlocked = unlocked.includes(achievement.id);
+        const item = document.createElement('div');
+        item.className = `achievement-chip ${isUnlocked ? 'unlocked' : 'locked'}`;
+        item.innerHTML = `<i class="fa-solid ${achievement.icon}"></i><span><strong>${achievement.title}</strong><small>${achievement.description}</small></span>${isUnlocked ? '<i class="fa-solid fa-check achievement-check"></i>' : '<i class="fa-solid fa-lock achievement-lock"></i>'}`;
+        achievementList.appendChild(item);
+    });
+}
+
+savePlayerNameBtn.addEventListener('click', () => {
+    const name = playerNameInput.value.trim().slice(0, 24);
+    if (!name) {
+        playerNameInput.focus();
+        playerNameInput.placeholder = 'Please enter a name';
+        return;
+    }
+    localStorage.setItem('qubrixPlayerName', name);
+    loadHistoryAndHeatmap();
+});
+
 // ================= SCORE & AI DIAGNOSTIC INSIGHTS =================
 function finishQuiz() {
-    clearInterval(rivalTimer);
     quizScreen.classList.add('hidden');
     resultScreen.classList.remove('hidden');
 
@@ -627,15 +759,15 @@ function finishQuiz() {
 
     const passStatusBadge = document.getElementById('passStatusBadge');
     if (percentage >= 60) {
-        passStatusBadge.textContent = isMultiplayer && rivalProgress <= correctCount ? "VICTORY 🏆" : "PASSED";
+        passStatusBadge.textContent = "PASSED";
         passStatusBadge.className = "status-badge passed";
     } else {
-        passStatusBadge.textContent = isMultiplayer ? "DEFEATED ❌" : "NEEDS WORK";
+        passStatusBadge.textContent = "NEEDS WORK";
         passStatusBadge.className = "status-badge failed";
     }
 
     renderBreakdown();
-    saveHistory(percentage, liveScore);
+    awardProgression(percentage, correctCount);
 }
 
 function renderBreakdown() {
@@ -667,31 +799,30 @@ function renderBreakdown() {
     });
 }
 
-// ================= HISTORY & 7-DAY HEATMAP =================
-function saveHistory(percentage, score) {
-    const history = JSON.parse(localStorage.getItem('qubrixHistory') || '[]');
-    history.unshift({
-        date: new Date().toLocaleDateString(),
-        category: questionCategoryBadge.textContent,
-        score: score,
-        percentage: percentage,
-        timestamp: Date.now()
-    });
-    localStorage.setItem('qubrixHistory', JSON.stringify(history.slice(0, 20)));
-}
-
+// ================= PERFORMANCE DASHBOARD, LEADERBOARD & 7-DAY HEATMAP =================
 function loadHistoryAndHeatmap() {
-    const history = JSON.parse(localStorage.getItem('qubrixHistory') || '[]');
+    const history = getHistory();
     historyList.innerHTML = '';
-
-    // Generate 7-Day Heatmap
     heatmapGrid.innerHTML = '';
+
+    const totalSessions = history.length;
+    const averageAccuracy = totalSessions
+        ? Math.round(history.reduce((sum, item) => sum + (Number(item.percentage) || 0), 0) / totalSessions)
+        : 0;
+    const bestScore = history.reduce((best, item) => Math.max(best, Number(item.score) || 0), 0);
+    const totalXP = Number(localStorage.getItem('qubrixTotalXP') || 0);
+    dashQuizzes.textContent = totalSessions;
+    dashAccuracy.textContent = `${averageAccuracy}%`;
+    dashBestScore.textContent = bestScore.toLocaleString();
+    dashTotalXp.textContent = totalXP.toLocaleString();
+    playerNameInput.value = getPlayerName() === 'Player' && !localStorage.getItem('qubrixPlayerName') ? '' : getPlayerName();
+
+    // 7-day activity heatmap
     const today = new Date();
     for (let i = 6; i >= 0; i--) {
         const d = new Date();
         d.setDate(today.getDate() - i);
         const dateStr = d.toLocaleDateString();
-        
         const activeCount = history.filter(item => item.date === dateStr).length;
         const cell = document.createElement('div');
         cell.style.flex = '1';
@@ -704,7 +835,6 @@ function loadHistoryAndHeatmap() {
         cell.style.fontSize = '0.65rem';
         cell.style.fontWeight = '700';
         cell.title = `${dateStr}: ${activeCount} sessions`;
-
         if (activeCount > 0) {
             cell.style.background = 'var(--accent-emerald)';
             cell.style.color = '#000';
@@ -717,26 +847,36 @@ function loadHistoryAndHeatmap() {
         heatmapGrid.appendChild(cell);
     }
 
-    if (history.length === 0) {
-        historyList.innerHTML = `<p style="text-align: center; color: var(--text-muted); padding: 24px 0; font-size: 0.85rem;">No past Qubrix session records found.</p>`;
-        return;
+    const leaderboard = getLeaderboard().sort((a, b) => (Number(b.score) || 0) - (Number(a.score) || 0));
+    leaderboardList.innerHTML = '';
+    if (!leaderboard.length) {
+        leaderboardList.innerHTML = '<p class="empty-dashboard-note">Complete a quiz to appear on the leaderboard.</p>';
+    } else {
+        leaderboard.slice(0, 10).forEach((item, index) => {
+            const row = document.createElement('div');
+            row.className = 'leaderboard-row';
+            const medal = index === 0 ? 'fa-medal' : index === 1 ? 'fa-medal' : index === 2 ? 'fa-medal' : 'fa-hashtag';
+            row.innerHTML = `<span class="leaderboard-rank rank-${index + 1}"><i class="fa-solid ${medal}"></i> ${index + 1}</span><span class="leaderboard-player"><strong></strong><small></small></span><strong class="leaderboard-score">${Number(item.score) || 0} pts</strong>`;
+            row.querySelector('.leaderboard-player strong').textContent = item.name || 'Player';
+            row.querySelector('.leaderboard-player small').textContent = `${item.category || 'Quiz'} · ${item.date || ''}`;
+            leaderboardList.appendChild(row);
+        });
     }
 
-    history.forEach(item => {
-        const el = document.createElement('div');
-        el.className = 'history-item';
-        el.innerHTML = `
-            <div>
-                <strong style="display: block; font-size: 0.9rem;">${item.category}</strong>
-                <span style="color: var(--text-muted); font-size: 0.72rem;">${item.date}</span>
-            </div>
-            <div style="text-align: right;">
-                <strong style="color: var(--accent-cyan); display: block; font-size: 0.95rem;">${item.score} pts</strong>
-                <span style="font-size: 0.72rem; font-weight: 700;">${item.percentage}% Accuracy</span>
-            </div>
-        `;
-        historyList.appendChild(el);
-    });
+    if (!history.length) {
+        historyList.innerHTML = '<p class="empty-dashboard-note">No past Qubrix sessions yet. Complete a quiz to see your progress here.</p>';
+    } else {
+        history.forEach(item => {
+            const el = document.createElement('div');
+            el.className = 'history-item';
+            el.innerHTML = `<div><strong class="history-category"></strong><span class="history-date"></span></div><div style="text-align: right;"><strong class="history-score"></strong><span class="history-accuracy"></span></div>`;
+            el.querySelector('.history-category').textContent = item.category || 'Quiz';
+            el.querySelector('.history-date').textContent = `${item.name || 'Player'} · ${item.date || ''}`;
+            el.querySelector('.history-score').textContent = `${Number(item.score) || 0} pts`;
+            el.querySelector('.history-accuracy').textContent = `${Number(item.percentage) || 0}% Accuracy · ${Number(item.xp) || 0} XP`;
+            historyList.appendChild(el);
+        });
+    }
 }
 
 historyModalBtn.addEventListener('click', () => {
@@ -747,12 +887,12 @@ closeHistoryBtn.addEventListener('click', () => historyModal.classList.add('hidd
 closeHistoryFooterBtn.addEventListener('click', () => historyModal.classList.add('hidden'));
 clearHistoryBtn.addEventListener('click', () => {
     localStorage.removeItem('qubrixHistory');
+    localStorage.removeItem('qubrixLeaderboard');
     loadHistoryAndHeatmap();
 });
 
 function resetQuiz() {
     clearInterval(timerInterval);
-    clearInterval(rivalTimer);
     resultScreen.classList.add('hidden');
     quizScreen.classList.add('hidden');
     startScreen.classList.remove('hidden');
